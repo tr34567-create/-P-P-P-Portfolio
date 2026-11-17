@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | ธิติศักดิ์ อ่อนจ้าย</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ========================================
+   ตั้งค่าพื้นฐาน
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --purple: #9E76B4;
+    --dark-purple: #694477;
+    --light-purple: #D8C6E2;
+    --white: #FFFFFF;
+    --light-gray: #F3F1F5;
+    --black: #25202A;
+    --gray: #706A75;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.7;
+}
+
+/* ========================================
+   Header / Navigation
+======================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 8%;
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 2px 12px rgba(105,68,119,0.12);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 23px;
+    font-weight: 600;
+    color: var(--dark-purple);
+}
+
+.logo-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--light-purple);
+    border: 2px solid var(--purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(105,68,119,0.15);
+}
+
+.logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 4px;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--purple);
+}
+
+/* ========================================
+   Hero Section
+======================================== */
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 8%;
+    background: linear-gradient(
+        135deg,
+        #FFFFFF 50%,
+        var(--light-gray) 50%
+    );
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 12px rgba(105,68,119,0.2));
+}
+
+.hero h1 {
+    font-size: 55px;
+    color: var(--dark-purple);
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.hero h2 span {
+    color: var(--purple);
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+/* ========================================
+   ปุ่ม
+======================================== */
+
+.btn {
+    display: inline-block;
+    padding: 13px 30px;
+    background: var(--purple);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--dark-purple);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   Section ทั่วไป
+======================================== */
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: var(--dark-purple);
+}
+
+.section-title p {
+    color: var(--gray);
+    margin-top: 8px;
+}
+
+/* ========================================
+   About Section
+======================================== */
+
+.about {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.profile-box {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    border-radius: 50%;
+    background: var(--light-purple);
+    border: 8px solid var(--purple);
+    box-shadow: 0 8px 25px rgba(105,68,119,0.15);
+    overflow: hidden;
+}
+
+.profile-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text h3 {
+    font-size: 28px;
+    color: var(--dark-purple);
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   Skills
+======================================== */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    padding: 7px 15px;
+    background: var(--light-gray);
+    color: var(--dark-purple);
+    border: 1px solid var(--light-purple);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ========================================
+   Projects Section
+======================================== */
+
+.projects {
+    background: var(--light-gray);
+}
+
+.project-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(105,68,119,0.08);
+    border-top: 4px solid var(--purple);
+    transition: 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(105,68,119,0.15);
+}
+
+.project-img {
+    width: 100%;
+    height: 180px;
+    background: var(--light-purple);
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background: var(--light-purple);
+    color: var(--dark-purple);
+    font-size: 22px;
+}
+
+.project-card h3 {
+    color: var(--dark-purple);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.project-link {
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    color: var(--dark-purple);
+}
+
+/* ========================================
+   Contact Section
+======================================== */
+
+.contact {
+    text-align: center;
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+    padding: 40px;
+    background: var(--light-gray);
+    border-radius: 20px;
+    border: 1px solid var(--light-purple);
+    box-shadow: 0 5px 20px rgba(105,68,119,0.05);
+}
+
+.contact-box p {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.contact-box a {
+    color: var(--dark-purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-box a:hover {
+    color: var(--purple);
+}
+
+/* ========================================
+   Footer
+======================================== */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    background: var(--dark-purple);
+    color: white;
+}
+
+footer span {
+    color: var(--light-purple);
+}
+
+/* ========================================
+   Responsive สำหรับมือถือ
+======================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 5%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo-box {
+        width: 50px;
+        height: 50px;
+    }
+
+    nav ul {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 40px 5%;
+    }
+
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .skills {
+        justify-content: center;
+    }
+
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-box {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+
+    <div class="logo">
+        <div class="logo-box">
+            <img src="cmu-logo.png" alt="Chiang Mai University Logo">
+        </div>
+        <span>My Portfolio</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <img src="cmu-logo.png"
+             alt="Chiang Mai University Logo"
+             class="hero-logo">
+
+        <h1>Portfolio 👋</h1>
+
+        <h2>
+            ผมชื่อ <span>ธิติศักดิ์ อ่อนจ้าย</span>
+        </h2>
+
+        <p>
+            Chiang Mai University
+            <br>
+            มหาวิทยาลัยเชียงใหม่
+        </p>
+
+        <a href="#projects" class="btn">
+            ดูผลงานของฉัน
+        </a>
+
+    </div>
+
+</section>
+
+<!-- About Section -->
+<section id="about">
+
+    <div class="section-title">
+        <h2>About Me</h2>
+        <p>มาทำความรู้จักกับผมกัน</p>
+    </div>
+
+    <div class="about">
+
+        <div class="profile-box">
+            <img src="profile.jpg" alt="รูปโปรไฟล์ ธิติศักดิ์">
+        </div>
+
+        <div class="about-text">
+
+            <h3>เกี่ยวกับฉัน</h3>
+
+            <p>
+                ผมชื่อธิติศักดิ์ อ่อนจ้าย
+                เป็นนักเรียนที่มีความสนใจด้านเทคโนโลยี
+                นวัตกรรม และการพัฒนาโปรแกรม
+                ชอบเรียนรู้สิ่งใหม่ ๆ
+                และนำความรู้มาสร้างสรรค์ผลงานต่าง ๆ
+            </p>
+
+            <p>
+                เป้าหมายของผมคือการพัฒนาความรู้
+                และทักษะของตนเอง
+                เพื่อนำไปต่อยอดในการศึกษาระดับมหาวิทยาลัย
+                และสร้างผลงานที่สามารถนำไปใช้ได้จริง
+            </p>
+
+            <div class="skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Python</span>
+                <span class="skill">IoT</span>
+                <span class="skill">Arduino</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+
+    <div class="section-title">
+        <h2>My Projects</h2>
+        <p>ผลงานและโครงงานที่ผมเคยทำ</p>
+    </div>
+
+    <div class="project-container">
+
+        <!-- Project 1 -->
+        <article class="project-card">
+
+            <div class="project-img">
+                <img src="project1.jpg" alt="Project 1">
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-icon">💻</div>
+
+                <h3>My First Project</h3>
+
+                <p>
+                    ผลงานและโครงงานที่ได้พัฒนาขึ้น
+                    จากการเรียนรู้ด้านเทคโนโลยี
+                    และการเขียนโปรแกรม
+                </p>
+
+                <a href="#" class="project-link">
+                    ดูรายละเอียด →
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+
+            <div class="project-img">
+                <img src="project2.jpg" alt="Project 2">
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-icon">🤖</div>
+
+                <h3>IoT Project</h3>
+
+                <p>
+                    โครงงาน Internet of Things
+                    ที่นำเซนเซอร์และเทคโนโลยี
+                    มาใช้ในการพัฒนาระบบอัจฉริยะ
+                </p>
+
+                <a href="#" class="project-link">
+                    ดูรายละเอียด →
+                </a>
+
+            </div>
+
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+
+            <div class="project-img">
+                <img src="project3.jpg" alt="Project 3">
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-icon">⚙️</div>
+
+                <h3>Creative Project</h3>
+
+                <p>
+                    ผลงานที่เกิดจากความคิดสร้างสรรค์
+                    และการนำความรู้มาประยุกต์ใช้
+                    เพื่อแก้ไขปัญหาในชีวิตประจำวัน
+                </p>
+
+                <a href="#" class="project-link">
+                    ดูรายละเอียด →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+
+    <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>สามารถติดต่อผมได้ผ่านช่องทางเหล่านี้</p>
+    </div>
+
+    <div class="contact-box">
+
+        <p>
+            📧 Email :
+            <a href="mailto:your@email.com">
+                your@email.com
+            </a>
+        </p>
+
+        <p>
+            📱 Instagram :
+            <a href="#">
+                @yourinstagram
+            </a>
+        </p>
+
+        <p>
+            💻 GitHub :
+            <a href="#">
+                github.com/yourusername
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+
+    <p>
+        © 2026 My Portfolio |
+        <span>ธิติศักดิ์ อ่อนจ้าย</span>
+    </p>
+
+    <p>Chiang Mai University</p>
+
+</footer>
+
+</body>
+</html>
